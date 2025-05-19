@@ -24,6 +24,42 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.red,
         toolbarHeight: _deviceHeight * 0.15,
       ),
+      body: _tasksList(),
+    );
+  }
+
+  Widget _tasksList() {
+    return ListView(
+      children: [
+        ListTile(
+          title: const Text(
+            'Do the laundry',
+            style: TextStyle(
+              fontSize: 20,
+              decoration: TextDecoration.lineThrough,
+            ),
+          ),
+          subtitle: Text(DateTime.now().toString()),
+          trailing: const Icon(Icons.check_box_outlined, color: Colors.red),
+          onTap: () {
+            // Handle task tap
+          },
+        ),
+        ListTile(
+          title: const Text(
+            'Do the laundry',
+            style: TextStyle(
+              fontSize: 20,
+              decoration: TextDecoration.lineThrough,
+            ),
+          ),
+          subtitle: Text(DateTime.now().toString()),
+          trailing: const Icon(Icons.check_box_outlined, color: Colors.red),
+          onTap: () {
+            // Handle task tap
+          },
+        ),
+      ],
     );
   }
 }
