@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage();
+  const HomePage({super.key});
   @override
   State<StatefulWidget> createState() {
     return _HomePageState();
@@ -25,6 +25,7 @@ class _HomePageState extends State<HomePage> {
         toolbarHeight: _deviceHeight * 0.15,
       ),
       body: _tasksList(),
+      floatingActionButton: _addTaskButton(),
     );
   }
 
@@ -60,6 +61,15 @@ class _HomePageState extends State<HomePage> {
           },
         ),
       ],
+    );
+  }
+
+  Widget _addTaskButton() {
+    return FloatingActionButton(
+      shape: const CircleBorder(),
+      onPressed: () {},
+      backgroundColor: Colors.red,
+      child: const Icon(Icons.add, size: 30, color: Colors.white),
     );
   }
 }
