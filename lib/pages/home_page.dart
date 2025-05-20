@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
     return FutureBuilder(
       future: Hive.openBox('tasks'),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
+        if (snapshot.hasData) {
           _box = snapshot.data;
           // You can replace this with your actual widget when data is available
           return _tasksList();
@@ -82,7 +82,14 @@ class _HomePageState extends State<HomePage> {
             color: Colors.red,
           ),
           onTap: () {
+            task.isDone = !task.isDone;
+            _box!.putAt(index, task.toMap());
+            setState(() {}); // Refresh the UI
             // Handle task tap
+          },
+          onLongPress: () {
+            _box!.deleteAt(index);
+            setState(() {}); // Refresh the UI
           },
         );
       },
